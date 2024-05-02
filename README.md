@@ -26,7 +26,7 @@ ___
 
 Incase you're changing the code and the included library doesn't work anymore, compile the source code to an object file with:
 ```console
-g++ -c maTH.cpp -o maTH.o
+g++ -c <file_name> -o maTH.o
 ```
 and create the library with:
 ```console
