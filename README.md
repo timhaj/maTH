@@ -1,5 +1,5 @@
 # maTH
-A forever developing library written in C++, which will consist of more or less all math operations.
+Ongoing C++ library which covers a wide range of math operations and keeps growing to offer more tools for all sorts of calculations.
 
 Here's a short demo to use the library:
 ```cpp
@@ -24,7 +24,7 @@ and run the executable using ```./main_executable``` or ```main_executable.exe``
 Don't have g++ compiler installed? [Check the installation guide here](https://code.visualstudio.com/docs/cpp/config-mingw)
 ___
 
-Incase your changing the code and the included library doesn't work anymore, compile the source code to an object file with:
+Incase you're changing the code and the included library doesn't work anymore, compile the source code to an object file with:
 ```console
 g++ -c maTH.cpp -o maTH.o
 ```
@@ -32,3 +32,6 @@ and create the library with:
 ```console
 ar rcs libmaTH.a maTH.o
 ```
+
+## Contributions
+Contributions for the library are very much welcome! If you have ideas for new features, optimizations, or bug fixes, feel free to open an issue or submit a pull request.
