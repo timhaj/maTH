@@ -21,7 +21,7 @@ g++ <file_name> -L. -lmaTH -o main_executable
 ```
 and run the executable using ```./main_executable``` or ```main_executable.exe```
 
-Don't have g++ compiler installed? [Check the installation guide here:] (https://code.visualstudio.com/docs/cpp/config-mingw)
+Don't have g++ compiler installed? [Check the installation guide here:](https://code.visualstudio.com/docs/cpp/config-mingw)
 ___
 
 Incase your changing the code and the included library doesn't work anymore, compile the source code to an object file with:
