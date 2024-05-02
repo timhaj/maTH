@@ -19,7 +19,7 @@ to run the code, run the following command with the library (already included in
 ```console
 g++ <file_name> -L. -lmaTH -o main_executable
 ```
-and run the executable using ```console ./main_executable``` or ```ps main_executable.exe```
+and run the executable using ```./main_executable``` or ```main_executable.exe```
 
 Don't have g++ compiler installed? [Check the installation guide here](https://code.visualstudio.com/docs/cpp/config-mingw)
 ___
