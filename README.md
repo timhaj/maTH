@@ -10,8 +10,9 @@ using namespace std;
 
 int main() {
     int a = 10, b = 5;
-    cout << "Addition: " << add(a, b) << endl;
-    cout << "Subtraction: " << subtract(a, b) << endl;
+    float x = 5, y = 2;
+    cout << "Addition: " << add<int>(a, b) << endl;
+    cout << "Subtraction: " << subtract<int>(x, y) << endl;
     return 0;
 }
 ```
@@ -35,3 +36,8 @@ ar rcs libmaTH.a maTH.o
 
 ## Contributions
 Contributions for the library are very much welcome! If you have ideas for new features, optimizations, or bug fixes, feel free to open an issue or submit a pull request.
+___
+TODO:
+- add cmake instructions
+- gitbook docs
+- more math!, maybe DS&algos in future
