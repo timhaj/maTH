@@ -35,3 +35,8 @@ ar rcs libmaTH.a maTH.o
 
 ## Contributions
 Contributions for the library are very much welcome! If you have ideas for new features, optimizations, or bug fixes, feel free to open an issue or submit a pull request.
+___
+TODO:
+- update this README.md demo & add cmake instructions
+- gitbook docs
+- more math!, maybe DS&algos in future
