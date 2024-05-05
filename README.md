@@ -10,9 +10,11 @@ using namespace std;
 
 int main() {
     int a = 10, b = 5;
-    float x = 5, y = 2;
-    cout << "Addition: " << add<int>(a, b) << endl;
-    cout << "Subtraction: " << subtract<int>(x, y) << endl;
+    float x = 5.1, y = 2;
+    cout << factorial(b) << endl;   // 120
+    cout << PI << endl;  // you can directly use constants
+    cout << "Addition: " << add<int>(a, x) << endl;   // 15
+    cout << "Addition: " << add<float>(a, x) << endl; // 15.1
     return 0;
 }
 ```
@@ -27,7 +29,7 @@ ___
 
 Incase you're changing the code and the included library doesn't work anymore, compile the source code to an object file with:
 ```console
-g++ -c <file_name> -o maTH.o
+g++ -c maTH.cpp -o maTH.o
 ```
 and create the library with:
 ```console
