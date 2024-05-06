@@ -44,6 +44,7 @@ template <typename returnType = double, typename T>
 returnType sin(T x)
 {
     int terms = 10;
+    // argument deduction
     x = fmod(x, PI); // Reduce x to the range of [-2pi, 2pi]
     if (x < -PI)
     {
@@ -71,6 +72,7 @@ template <typename returnType = double, typename T>
 returnType cos(T x)
 {
     int terms = 10;
+    // argument deduction
     x = fmod(x, 2 * PI); // Reduce x to the range of [-2pi, 2pi]
     if (x < -PI)
     {
@@ -92,6 +94,32 @@ returnType cos(T x)
         sign *= -1;
     }
     return result;
+}
+
+template <typename returnType, typename T>
+returnType ln(T x)
+{
+    int terms = 100;
+    if (x <= 0)
+    {
+        //
+    }
+    returnType result = 0;
+    returnType term = (x - 1) / (x + 1);
+    int denom = 1;
+    for (int i = 1; i <= terms; i++)
+    {
+        result += term;
+        denom += 2;
+        term *= (((x - 1) / (x + 1)) * ((x - 1) / (x + 1))) * 1 / denom;
+    }
+    return result * 2;
+}
+
+template <typename returnType, typename T1, typename T2 = T1>
+returnType log(T1 base, T2 argument)
+{
+    return (returnType)(ln<returnType>(argument) / ln<returnType>(base));
 }
 
 #endif
