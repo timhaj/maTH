@@ -99,19 +99,16 @@ returnType cos(T x)
 template <typename returnType, typename T>
 returnType ln(T x)
 {
-    int terms = 100;
+    int terms = 999;
     if (x <= 0)
     {
         //
     }
     returnType result = 0;
     returnType term = (x - 1) / (x + 1);
-    int denom = 1;
-    for (int i = 1; i <= terms; i++)
+    for (float n = 1; n <= terms; n++)
     {
-        result += term;
-        denom += 2;
-        term *= (((x - 1) / (x + 1)) * ((x - 1) / (x + 1))) * 1 / denom;
+        result += (1 / ((2 * n) - 1)) * (pow(term, ((2 * n) - 1)));
     }
     return result * 2;
 }
