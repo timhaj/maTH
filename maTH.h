@@ -122,4 +122,22 @@ returnType log(T1 base, T2 argument)
     return (returnType)(ln<returnType>(argument) / ln<returnType>(base));
 }
 
+template <typename returnType, typename T1 = returnType>
+returnType radToDeg(T1 rad)
+{
+    return (returnType)(rad * (180 / PI));
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType degToRad(T1 deg)
+{
+    return (returnType)(deg * (PI / 180));
+}
+
+template <typename returnType, typename T1 = returnType, typename T2 = T1>
+returnType mod(T1 dividend, T2 divisor)
+{
+    return (returnType)(dividend - (((int)(dividend / divisor)) * divisor));
+}
+
 #endif
