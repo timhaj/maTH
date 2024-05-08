@@ -137,4 +137,21 @@ returnType mod(T1 dividend, T2 divisor)
     return (returnType)(dividend - (((int)(dividend / divisor)) * divisor));
 }
 
+template <typename returnType, typename T1 = returnType>
+returnType abs(T1 val)
+{
+    return val >= 0 ? (returnType)val : (returnType)(val * -1);
+}
+
+template <typename T1>
+int floor(T1 x)
+{
+    return x >= 0 ? (int)x : (int)(x - 1);
+}
+
+template <typename T1>
+int ceil(T1 x)
+{
+    return x >= 0 ? (int)(x + 1) : (int)x;
+}
 #endif
