@@ -1,5 +1,7 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
+using namespace std;
 #ifndef MATH_H
 #define MATH_H
 
@@ -39,6 +41,7 @@ std::vector<int> pascal(int n);
 int combinations(int n, int k);
 int combinationsWithRep(int n, int k);
 int permutations(int n, int k);
+int pow(int a, int n);
 
 template <typename returnType = double, typename T>
 returnType sin(T x)
@@ -96,21 +99,33 @@ returnType cos(T x)
     return result;
 }
 
-template <typename returnType, typename T>
-returnType ln(T x)
+template <typename returnType, typename T1 = returnType>
+returnType ln(T1 x)
 {
-    int terms = 999;
     if (x <= 0)
     {
-        //
+        // error
     }
+    double log10 = 2.30258509299;
+    returnType number = x;
+    int exponent = 0;
+    for (; number > 1; number /= 10)
+    {
+        exponent++;
+    }
+    number *= 10;
+    exponent -= 1;
+    double y = (number - 1) / (number + 1);
+
+    int terms = 999;
     returnType result = 0;
-    returnType term = (x - 1) / (x + 1);
     for (float n = 1; n <= terms; n++)
     {
-        result += (1 / ((2 * n) - 1)) * (pow(term, ((2 * n) - 1)));
+        result += (1 / ((2 * n) - 1)) * (pow(y, ((2 * n) - 1)));
     }
-    return result * 2;
+    result *= 2;
+    double koncni = ((exponent)*log10) + result;
+    return (returnType)koncni;
 }
 
 template <typename returnType, typename T1, typename T2 = T1>

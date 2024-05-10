@@ -63,3 +63,13 @@ int permutations(int n, int k)
 {
     return factorial(n) / factorial(n - k);
 }
+
+int pow(int a, int n)
+{
+    int result = 1;
+    for (int i = 0; i < n; i++)
+    {
+        result *= a;
+    }
+    return result;
+}
