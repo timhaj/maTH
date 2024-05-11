@@ -58,3 +58,11 @@ int pow(int a, int n) {
     }
     return result;
 }
+
+double pow(double a, int n){
+    double result = 1;
+    for (int i = 0; i < n; i++) {
+        result *= a;
+    }
+    return result;    
+}

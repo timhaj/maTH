@@ -1,5 +1,6 @@
 #include <vector>
 #include <cmath>
+#include <iostream>
 #ifndef MATH_H
 #define MATH_H
 
@@ -15,6 +16,7 @@ int combinations(int n, int k);
 int combinationsWithRep(int n, int k);
 int permutations(int n, int k);
 int pow(int a, int n);
+double pow(double a, int n);
 
 template <typename ReturnType, typename T1 = ReturnType, typename T2 = T1>
 ReturnType add(T1 a, T2 b) {
@@ -143,4 +145,16 @@ template <typename T1>
 int ceil(T1 x) {
     return x >= 0 ? (int)(x + 1) : (int)x;
 }
+
+template <typename returnType, typename T1 = returnType, typename T2 = T1>
+returnType root(T1 n, T2 a){ //n is the index (degree), a is the radicand
+    returnType xk = a/2.0; //init. guess
+    double te1 = ((double)(n-1)/n);
+    double te2 = (double) a/n;
+    for (int i = 0; i < 99; i++) {
+        xk = (te1*xk) + (te2 * (1 / pow(xk, (int) (n - 1))));
+    }
+    return xk;    
+}
+
 #endif
