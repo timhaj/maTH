@@ -10,6 +10,7 @@ constexpr long double PHI = 1.61803398874989484820458683436563811772030917980576
 constexpr long double TAU = 0.61803398874989484820458683436563811772030917980576286213544862270526046281890;
 
 int factorial(int n);
+long long factorialL(int n);
 int factorial_rec(int n);
 std::vector<int> pascal(int n);
 int combinations(int n, int k);
@@ -17,6 +18,8 @@ int combinationsWithRep(int n, int k);
 int permutations(int n, int k);
 int pow(int a, int n);
 double pow(double a, int n);
+double pow(int a, double n);
+double pow(double a, double n);
 
 template <typename ReturnType, typename T1 = ReturnType, typename T2 = T1>
 ReturnType add(T1 a, T2 b) {
@@ -155,6 +158,15 @@ returnType root(T1 n, T2 a){ //n is the index (degree), a is the radicand
         xk = (te1*xk) + (te2 * (1 / pow(xk, (int) (n - 1))));
     }
     return xk;    
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType exp(T1 x){
+    returnType result = 0.0;
+    for(int i = 0;i<21;i++){
+        result += pow((double) x, (int) i) / factorialL(i);
+    }
+    return result;
 }
 
 #endif

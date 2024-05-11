@@ -66,3 +66,19 @@ double pow(double a, int n){
     }
     return result;    
 }
+
+long long factorialL(int n){
+    long long res = 1;
+    for (int i = 1; i <= n; i++) {
+        res *= i;
+    }
+    return res;    
+}
+
+double pow(int a, double n){
+    return exp(n * log(a));
+}
+
+double pow(double a, double n){
+    return exp(n * log(a));
+}
