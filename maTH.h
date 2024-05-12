@@ -1,6 +1,6 @@
 #include <vector>
 #include <cmath>
-#include <iostream>
+#include <stdexcept>
 #ifndef MATH_H
 #define MATH_H
 
@@ -23,8 +23,7 @@ double pow(double a, double n);
 
 template <typename ReturnType, typename T1 = ReturnType, typename T2 = T1>
 ReturnType add(T1 a, T2 b) {
-    ReturnType result = a + b;
-    return result;
+    return (ReturnType)a + (ReturnType)b;
 }
 
 template <typename ReturnType, typename T1, typename T2 = T1>
@@ -93,7 +92,7 @@ returnType cos(T x) {
 template <typename returnType, typename T1 = returnType>
 returnType ln(T1 x) {
     if (x <= 0) {
-        // error
+        throw std::runtime_error("Error: The natural logarithm is undefined for non-positive values.");
     }
     double log10 = 2.30258509299;
     returnType number = x;
@@ -116,6 +115,9 @@ returnType ln(T1 x) {
 
 template <typename returnType, typename T1, typename T2 = T1>
 returnType log(T1 base, T2 argument) {
+    if(argument <= 0){
+        throw std::runtime_error("Error: Logarithm is undefined for non-positive values.");        
+    }
     return (returnType)(ln<returnType>(argument) / ln<returnType>(base));
 }
 
@@ -151,6 +153,9 @@ int ceil(T1 x) {
 
 template <typename returnType, typename T1 = returnType, typename T2 = T1>
 returnType root(T1 n, T2 a){ //n is the index (degree), a is the radicand
+    if(n % 2 == 0 && a < 0 ){
+        throw std::runtime_error("Error: The nth root function is undefined for non-positive values of even root indexes (degrees)");
+    }
     returnType xk = a/2.0; //init. guess
     double te1 = ((double)(n-1)/n);
     double te2 = (double) a/n;
