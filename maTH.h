@@ -169,4 +169,57 @@ returnType exp(T1 x){
     return result;
 }
 
+template <typename returnType, typename T1 = returnType>
+returnType tan(T1 x){
+    //treba zmanjsat def. obmocje
+    return (returnType) (sin<double>(x)/cos<double>(x));
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType arcsin(T1 x){
+    //treba zmanjsat def. obmocje
+    returnType result = 0;
+    for(int i = 0;i<20;i++){
+        int t3 = (2*i) + 1;
+        result += (factorialL(2*i))/(pow((int) 4, (int) i) * (factorialL(i)*factorialL(i)) * (t3))*pow((double) x, (int) t3);
+    }
+    return result;
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType arccos(T1 x){
+    return (returnType) ((PI/2) - arcsin<T1>(x));
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType arctan(T1 x){
+    //treba zmanjsat def. obmocje    
+    returnType result = 0;
+    for(int i = 0;i<20;i++){
+        int t2 = (2*i) + 1;
+        result += ((pow(-1, i))/t2)*pow(x, t2);
+    }
+    return result;
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType sinh(T1 x){
+    returnType result = 0;
+    for(int i = 0;i<20;i++){
+        int t = (2*i) + 1;
+        result += ((pow(x, t))/factorialL(t));
+    }
+    return result;
+}
+
+template <typename returnType, typename T1 = returnType>
+returnType cosh(T1 x){
+    returnType result = 0;
+    for(int i = 0;i<20;i++){
+        int t = 2*i;
+        result += ((pow(x, t))/factorialL(t));
+    }
+    return result;    
+}
+
 #endif
