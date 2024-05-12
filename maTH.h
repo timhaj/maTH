@@ -222,4 +222,9 @@ returnType cosh(T1 x){
     return result;    
 }
 
+template <typename T1>
+int round(T1 x){
+    return (x - floor(x) < 0.5) ? floor(x) : ceil(x);
+}
+
 #endif
