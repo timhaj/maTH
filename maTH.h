@@ -327,4 +327,104 @@ struct Poisson {
     }    
 };
 
+struct Geometric {
+    double p;
+
+    Geometric(double p){
+        if(p >= 0 && p <= 1){
+            this->p = p;
+        }
+        else{
+            throw std::runtime_error("Error: Probability cannot be less than 0 or more than 1.");            
+        }
+    }
+
+    double E(){
+        return divide<double>(1, this->p);
+    }
+
+    double D(){
+        return divide<double>(1-(this->p), pow(this->p,2));
+    }
+
+    double P(int k){ //P(X = k)
+        return this->p * pow(1-(this->p), k-1);
+    }
+
+    double P_LT(int k){ //P(X < k)
+        double sum = 0.0;
+        for(int i = 0;i<k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }
+
+    double P_LTE(int k){ //P(X <= k)
+        double sum = 0.0;
+        for(int i = 0;i<=k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }    
+
+    double P_HT(int k){ //P(X > k) -> P(X <= k)
+        return (double) (1 - this->P_LTE(k));
+    }
+
+    double P_HTE(int k){ //P(X >= k) -> P(X < k)
+        return (double) (1 - this->P_LT(k));
+    } 
+};
+
+struct Pascal {
+    int r;
+    double p;
+
+    Pascal(int r, double p){
+        this->r = r;
+        if(p >= 0 && p <= 1){
+            this->p = p;
+        }
+        else{
+            throw std::runtime_error("Error: Probability cannot be less than 0 or more than 1.");
+        }
+    }
+
+    double E(){
+        return divide<double>(this->r, this->p);
+    }
+
+    double D(){
+        return divide<double>(this->r *(1-(this->p)), pow(this->p,2));
+    }
+
+    double P(int k){ //P(X = k)
+        return combinations(k-1, (this->r) - 1) * pow(this->p, this->r)*pow((1-(this->p)), k - this->r); 
+    }
+
+    double P_LT(int k){ //P(X < k)
+        double sum = 0.0;
+        for(int i = 0;i<k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }
+
+    double P_LTE(int k){ //P(X <= k)
+        double sum = 0.0;
+        for(int i = 0;i<=k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }    
+
+    double P_HT(int k){ //P(X > k) -> P(X <= k)
+        return (double) (1 - this->P_LTE(k));
+    }
+
+    double P_HTE(int k){ //P(X >= k) -> P(X < k)
+        return (double) (1 - this->P_LT(k));
+    }
+};
+
 #endif
