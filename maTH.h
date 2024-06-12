@@ -475,4 +475,24 @@ struct Hypergeometric {
     }    
 };
 
+struct Exponential {
+    double lambda;
+
+    Exponential(double lambda){
+        this->lambda = lambda;
+    }
+
+    double E(){
+        return divide<double>(1, this->lambda);
+    }
+
+    double D(){
+        return divide<double>(1, pow(this->lambda, 2));
+    }
+
+    double P(double k){ //P(X = k)
+        return 1 - pow(exp<double>(1.0), this->lambda*(-1) * k);
+    } 
+};
+
 #endif
