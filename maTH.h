@@ -20,6 +20,8 @@ int pow(int a, int n);
 double pow(double a, int n);
 double pow(int a, double n);
 double pow(double a, double n);
+int GCD(int a, int b);
+int LCM(int a, int b);
 
 template <typename ReturnType, typename T1 = ReturnType, typename T2 = T1>
 ReturnType add(T1 a, T2 b) {
@@ -551,7 +553,5 @@ struct Uniform {
         }
     }     
 };
-
-
 
 #endif

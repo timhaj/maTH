@@ -82,3 +82,16 @@ double pow(int a, double n){
 double pow(double a, double n){
     return exp(n * log(a));
 }
+
+int GCD(int a, int b){
+    for(;b != 0;){
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int LCM(int a, int b){
+    return divide<int>((a*b), GCD(a,b));
+}
