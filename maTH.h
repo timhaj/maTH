@@ -427,4 +427,52 @@ struct Pascal {
     }
 };
 
+struct Hypergeometric {
+    int K;
+    int N;
+    int n;
+
+    Hypergeometric(int K, int N, int n){
+        this->K = K;
+        this->N = N;
+        this->n = n;
+    }
+
+    double E(){
+        return divide<double>(this->n * this->K, this->N);
+    }
+
+    double D(){
+        return this->n * divide<double>(this->K, this->N) * divide<double>(this->N - this->K, this->N) * divide<double>(this->N - this->n, this->N - 1);
+    }
+
+    double P(int k){ //P(X = k)
+        return divide<double>(combinations(this->K, k) * combinations((this->N) - (this->K), (this->n) - k), combinations(this->N, this->n)); 
+    }
+
+    double P_LT(int k){ //P(X < k)
+        double sum = 0.0;
+        for(int i = 0;i<k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }
+
+    double P_LTE(int k){ //P(X <= k)
+        double sum = 0.0;
+        for(int i = 0;i<=k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }    
+
+    double P_HT(int k){ //P(X > k) -> P(X <= k)
+        return (double) (1 - this->P_LTE(k));
+    }
+
+    double P_HTE(int k){ //P(X >= k) -> P(X < k)
+        return (double) (1 - this->P_LT(k));
+    }    
+};
+
 #endif
