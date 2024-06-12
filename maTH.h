@@ -283,4 +283,48 @@ struct Binomial {
     }
 };
 
+struct Poisson {
+    double lambda;
+
+    Poisson(double lambda){
+        this->lambda = lambda;
+    }
+
+    double E(){
+        return this->lambda;
+    }
+
+    double D(){
+        return this->lambda;
+    }
+
+    double P(int k){ //P(X = k)
+        return pow(exp<double>(1.0), this->lambda*(-1))*divide<double>(pow(this->lambda, k), factorial(k));
+    }
+
+    double P_LT(int k){ //P(X < k)
+        double sum = 0.0;
+        for(int i = 0;i<k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }
+
+    double P_LTE(int k){ //P(X <= k)
+        double sum = 0.0;
+        for(int i = 0;i<=k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }    
+
+    double P_HT(int k){ //P(X > k) -> P(X <= k)
+        return (double) (1 - this->P_LTE(k));
+    }
+
+    double P_HTE(int k){ //P(X >= k) -> P(X < k)
+        return (double) (1 - this->P_LT(k));
+    }    
+};
+
 #endif
