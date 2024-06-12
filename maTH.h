@@ -495,4 +495,26 @@ struct Exponential {
     } 
 };
 
+struct Uniform {
+    double a;
+    double b;
+
+    Uniform(double a, double b){
+        this->a = a;
+        this->b = b;
+    }
+
+    double E(){
+        return divide<double>(this->a + this->b, 2);
+    }
+
+    double D(){
+        return divide<double>(pow(this->b - this->a, 2), 12);
+    }
+
+    double P(double k){ //P(X = k)
+        return divide<double>(k - this->a, this->b - this->a);
+    }     
+};
+
 #endif
