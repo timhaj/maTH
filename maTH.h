@@ -255,7 +255,12 @@ struct Binomial {
     }
 
     double P(int k){ //P(X = k)
-        return combinations(n, k) * pow(this->p, k)*pow((1-(this->p)), this->n - k); 
+        if(k >= 0 && k <= n){
+            return combinations(n, k) * pow(this->p, k)*pow((1-(this->p)), this->n - k); 
+        }
+        else{
+            throw std::runtime_error("Error: The number of succesful trials cannot exceed the number of all trials or be less than 0.  ");
+        }
     }
 
     double P_LT(int k){ //P(X < k)
@@ -299,7 +304,12 @@ struct Poisson {
     }
 
     double P(int k){ //P(X = k)
-        return pow(exp<double>(1.0), this->lambda*(-1))*divide<double>(pow(this->lambda, k), factorial(k));
+        if(k >= 0){
+            return pow(exp<double>(1.0), this->lambda*(-1))*divide<double>(pow(this->lambda, k), factorial(k));
+        }
+        else{
+            throw std::runtime_error("Error: Random variable cannot be less than 0.");
+        }
     }
 
     double P_LT(int k){ //P(X < k)
@@ -348,7 +358,12 @@ struct Geometric {
     }
 
     double P(int k){ //P(X = k)
-        return this->p * pow(1-(this->p), k-1);
+        if(k >= 1){
+            return this->p * pow(1-(this->p), k-1);
+        }
+        else{
+            throw std::runtime_error("Error: Number of trials cannot be less than 1. ");
+        }
     }
 
     double P_LT(int k){ //P(X < k)
@@ -399,7 +414,12 @@ struct Pascal {
     }
 
     double P(int k){ //P(X = k)
-        return combinations(k-1, (this->r) - 1) * pow(this->p, this->r)*pow((1-(this->p)), k - this->r); 
+        if(k >= this->r){
+            return combinations(k-1, (this->r) - 1) * pow(this->p, this->r)*pow((1-(this->p)), k - this->r); 
+        }
+        else{
+            throw std::runtime_error("Error: Number of trials cannot be less than the number of required successful trials.");
+        }
     }
 
     double P_LT(int k){ //P(X < k)
@@ -447,7 +467,12 @@ struct Hypergeometric {
     }
 
     double P(int k){ //P(X = k)
-        return divide<double>(combinations(this->K, k) * combinations((this->N) - (this->K), (this->n) - k), combinations(this->N, this->n)); 
+        if(k >= 0 && (k <= this->n || k <= this->K)){
+            return divide<double>(combinations(this->K, k) * combinations((this->N) - (this->K), (this->n) - k), combinations(this->N, this->n)); 
+        }
+        else{
+            throw std::runtime_error("Error: Number of successes in sample cannot be less than 0 or more than the sample size or more than the number of successes in population. ");
+        }
     }
 
     double P_LT(int k){ //P(X < k)
@@ -491,7 +516,12 @@ struct Exponential {
     }
 
     double P(double k){ //P(X = k)
-        return 1 - pow(exp<double>(1.0), this->lambda*(-1) * k);
+        if(k >= 0){
+            return 1 - pow(exp<double>(1.0), this->lambda*(-1) * k);
+        }
+        else{
+            throw std::runtime_error("Error: Number of events cannot be less than 0. ");
+        }
     } 
 };
 
@@ -513,8 +543,15 @@ struct Uniform {
     }
 
     double P(double k){ //P(X = k)
-        return divide<double>(k - this->a, this->b - this->a);
+        if(k >= this->a && k <= this->b){
+            return divide<double>(k - this->a, this->b - this->a);
+        }
+        else{
+            throw std::runtime_error("Error: Given value cannot be anything outside of [a, b].");
+        }
     }     
 };
+
+
 
 #endif
