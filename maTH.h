@@ -232,4 +232,55 @@ int round(T1 x){
     return (x - floor(x) < 0.5) ? floor(x) : ceil(x);
 }
 
+struct Binomial {
+    int n;
+    double p;
+
+    Binomial(int n, double p){
+        this->n = n;
+        if(p >= 0 && p <= 1){
+            this->p = p;
+        }
+        else{
+            throw std::runtime_error("Error: Probability cannot be less than 0 or more than 1.");
+        }
+    }
+
+    double E(){
+        return n*p;
+    }
+
+    double D(){
+        return n*p*(1-p);
+    }
+
+    double P(int k){ //P(X = k)
+        return combinations(n, k) * pow(this->p, k)*pow((1-(this->p)), this->n - k); 
+    }
+
+    double P_LT(int k){ //P(X < k)
+        double sum = 0.0;
+        for(int i = 0;i<k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }
+
+    double P_LTE(int k){ //P(X <= k)
+        double sum = 0.0;
+        for(int i = 0;i<=k;i++){
+            sum += this->P(i);
+        }
+        return sum;
+    }    
+
+    double P_HT(int k){ //P(X > k) -> P(X <= k)
+        return (double) (1 - this->P_LTE(k));
+    }
+
+    double P_HTE(int k){ //P(X >= k) -> P(X < k)
+        return (double) (1 - this->P_LT(k));
+    }
+};
+
 #endif
