@@ -6,7 +6,7 @@
 multiply<return_type>(a, b);
 ```
 
-will return the product of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
+will return the product of the two given numbers. The return\_type specifies in which data type the multiplication will be returned in, like shown in below example:&#x20;
 
 ```cpp
 multiply<int>(7.89, 6); //42

@@ -1,4 +1,4 @@
-# divide
+# cosh
 
 ## Divide any two numbers
 
@@ -6,7 +6,7 @@
 divide<return_type>(a, b);
 ```
 
-will return the quotient of the two given numbers. The return\_type specifies in which data type the result will be returned in, like shown in below example:&#x20;
+will return the quotient of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
 
 ```cpp
 divide<int>(12, 3.53); //4
