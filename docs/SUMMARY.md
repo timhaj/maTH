@@ -34,3 +34,4 @@
 * [🥶 Statistics](reference/statistics/README.md)
   * [Pets](reference/statistics/pets.md)
   * [Users](reference/statistics/users.md)
+* [😳 Constants](reference/constants.md)
