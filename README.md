@@ -1,7 +1,7 @@
 # maTH
 Ongoing C++ library which covers a wide range of math operations and keeps growing to offer more tools for all sorts of calculations.
 
-You can find the full in-depth documentation [here:] (https://math-5.gitbook.io/math/)
+You can find the full in-depth documentation [here:](https://math-5.gitbook.io/math/)
 
 Here's a short demo to use the library:
 ```cpp
