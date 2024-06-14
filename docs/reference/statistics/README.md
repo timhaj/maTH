@@ -1,23 +1,5 @@
 # 🥶 Statistics
 
-Dive into the specifics of each API endpoint by checking out our complete documentation.
+maTH library also supports some distributions from statistics. Here's a list of them all:
 
-## Pets
-
-All the methods associated with `CRUD`ing some pets. Which isn't as weird as it sounds:
-
-{% content-ref url="../mathematical-operations/add.md" %}
-[add.md](../mathematical-operations/add.md)
-{% endcontent-ref %}
-
-## Users
-
-Everything related to users:
-
-{% content-ref url="../mathematical-operations/users.md" %}
-[users.md](../mathematical-operations/users.md)
-{% endcontent-ref %}
-
-{% hint style="info" %}
-**Good to know:** Using the 'Page Link' block lets you link directly to a page. If this page's name, URL or parent location changes, the reference will be kept up to date. You can also mention a page – like [add.md](../mathematical-operations/add.md "mention") – if you don't want a block-level link.
-{% endhint %}
+<table data-full-width="true"><thead><tr><th>Distribution</th><th>Description</th><th data-type="content-ref">Source</th></tr></thead><tbody><tr><td><code>Binomial(n, p)</code></td><td>Number of successes in a sequence of n independent experiments, all with constant probability of p. </td><td><a href="binomial.md">binomial.md</a></td></tr><tr><td><code>Poisson(lambda)</code></td><td>Expresses the probability of a given number of events occurring in a fixed interval of time or space if these events occur with a known constant mean rate (lambda) and independently of the time since the last event.</td><td><a href="poisson.md">poisson.md</a></td></tr><tr><td><code>Geometric(p)</code></td><td>Describes when the first success in an infinite sequence of independent and identically distributed Bernoulli trials occurs.</td><td><a href="geometric.md">geometric.md</a></td></tr><tr><td><code>Pascal(r, p)</code></td><td>Also known as negative binomial distribution, expresses the number of failures in a sequence of independent and identically distributed Bernoulli trials before a specified number of successes (r) occurs.</td><td><a href="pascal.md">pascal.md</a></td></tr><tr><td><code>Hypergeometric(K, N, n)</code></td><td>Describes the probability of k successes in n draws, without replacement, from a finite population of size N that contains exactly K objects with that feature, wherein each draw is either a success or a failure.</td><td><a href="hypergeometric.md">hypergeometric.md</a></td></tr><tr><td><code>Exponential(lambda)</code></td><td>The probability distribution of the distance between events in a Poisson point process, i.e., a process in which events occur continuously and independently at a constant average rate (lambda)</td><td><a href="exponential.md">exponential.md</a></td></tr><tr><td><code>Uniform(a, b)</code></td><td>Such a distribution describes an experiment where there is an arbitrary outcome that lies between certain bounds [a, b].</td><td><a href="uniform.md">uniform.md</a></td></tr></tbody></table>
