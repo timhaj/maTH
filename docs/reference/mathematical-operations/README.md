@@ -1,23 +1,9 @@
 # 😱 Mathematical operations
 
-Dive into the specifics of each API endpoint by checking out our complete documentation.
+maTH library  started as a library of mathematical operations made from scratch. Here's a list of all operations the library supports:
 
-## Pets
-
-All the methods associated with `CRUD`ing some pets. Which isn't as weird as it sounds:
-
-{% content-ref url="add.md" %}
-[add.md](add.md)
-{% endcontent-ref %}
-
-## Users
-
-Everything related to users:
-
-{% content-ref url="users.md" %}
-[users.md](users.md)
-{% endcontent-ref %}
+<table><thead><tr><th>Function</th><th>Description</th><th data-type="content-ref">Source</th></tr></thead><tbody><tr><td>int factorial(int n)</td><td></td><td></td></tr><tr><td>long long factorialL(int n)</td><td></td><td></td></tr><tr><td>std::vector&#x3C;int> pascal(int n)</td><td></td><td></td></tr><tr><td>int combinations(int n, int k)</td><td></td><td></td></tr><tr><td>int combinationsWithRep(int n, int k)</td><td></td><td></td></tr><tr><td>int permutations(int n, int k)</td><td></td><td></td></tr><tr><td>int pow(int a, int n)</td><td></td><td></td></tr><tr><td>double pow(double a, int n)</td><td></td><td></td></tr><tr><td>double pow(int a, double n)</td><td></td><td></td></tr><tr><td>double pow(double a, double n)</td><td></td><td></td></tr><tr><td>int GCD(int a, int b)</td><td></td><td></td></tr><tr><td>int LCM(int a, int b)</td><td></td><td></td></tr><tr><td>add&#x3C;return_type>(a, b)</td><td></td><td></td></tr><tr><td>subtract&#x3C;return_type>(a, b)</td><td></td><td></td></tr><tr><td>multiply&#x3C;return_type>(a, b)</td><td></td><td></td></tr><tr><td>divide&#x3C;return_type>(a, b)</td><td></td><td></td></tr><tr><td>sin&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>cos&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>ln&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>log&#x3C;return_type>(base, argument)</td><td></td><td></td></tr><tr><td>radToDeg&#x3C;return_type>(rad)</td><td></td><td></td></tr><tr><td>degToRad&#x3C;return_type>(deg)</td><td></td><td></td></tr><tr><td>mod&#x3C;return_type>(dividend, divisor)</td><td></td><td></td></tr><tr><td>abs&#x3C;return_type>(val)</td><td></td><td></td></tr><tr><td>int floor(x)</td><td></td><td></td></tr><tr><td>int ceil(x)</td><td></td><td></td></tr><tr><td>root&#x3C;return_type>(n, a)</td><td></td><td></td></tr><tr><td>exp&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>tan&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>arcsin&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>arccos&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>arctan&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>sinh&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>cosh&#x3C;return_type>(x)</td><td></td><td></td></tr><tr><td>int round(x)</td><td></td><td></td></tr></tbody></table>
 
 {% hint style="info" %}
-**Good to know:** Using the 'Page Link' block lets you link directly to a page. If this page's name, URL or parent location changes, the reference will be kept up to date. You can also mention a page – like [add.md](add.md "mention") – if you don't want a block-level link.
+If the argument data type is defined, eg. `int round(x)`, it means x can be whatever data type.&#x20;
 {% endhint %}
