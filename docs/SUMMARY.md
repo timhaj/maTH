@@ -36,4 +36,7 @@
   * [Poisson](reference/statistics/poisson.md)
   * [Geometric](reference/statistics/geometric.md)
   * [Pascal](reference/statistics/pascal.md)
+  * [Hypergeometric](reference/statistics/hypergeometric.md)
+  * [Exponential](reference/statistics/exponential.md)
+  * [Uniform](reference/statistics/uniform.md)
 * [😳 Constants](reference/constants.md)
