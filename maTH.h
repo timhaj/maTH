@@ -97,7 +97,7 @@ returnType ln(T1 x) {
         throw std::runtime_error("Error: The natural logarithm is undefined for non-positive values.");
     }
     double log10 = 2.30258509299;
-    returnType number = x;
+    float number = x;
     int exponent = 0;
     for (; number > 1; number /= 10) {
         exponent++;
@@ -106,7 +106,7 @@ returnType ln(T1 x) {
     exponent -= 1;
     double y = (number - 1) / (number + 1);
     int terms = 999;
-    returnType result = 0;
+    float result = 0;
     for (float n = 1; n <= terms; n++) {
         result += (1 / ((2 * n) - 1)) * (pow(y, ((2 * n) - 1)));
     }
@@ -120,7 +120,7 @@ returnType log(T1 base, T2 argument) {
     if(argument <= 0){
         throw std::runtime_error("Error: Logarithm is undefined for non-positive values.");        
     }
-    return (returnType)(ln<returnType>(argument) / ln<returnType>(base));
+    return (returnType)(ln<float>(argument) / ln<float>(base));
 }
 
 template <typename returnType, typename T1 = returnType>
@@ -158,22 +158,22 @@ returnType root(T1 n, T2 a){ //n is the index (degree), a is the radicand
     if(n % 2 == 0 && a < 0 ){
         throw std::runtime_error("Error: The nth root function is undefined for non-positive values of even root indexes (degrees)");
     }
-    returnType xk = a/2.0; //init. guess
+    float xk = a/2.0; //init. guess
     double te1 = ((double)(n-1)/n);
     double te2 = (double) a/n;
     for (int i = 0; i < 99; i++) {
         xk = (te1*xk) + (te2 * (1 / pow(xk, (int) (n - 1))));
     }
-    return xk;    
+    return (returnType) xk;    
 }
 
 template <typename returnType, typename T1 = returnType>
 returnType exp(T1 x){
-    returnType result = 0.0;
+    float result = 0.0;
     for(int i = 0;i<21;i++){
         result += pow((double) x, (int) i) / factorialL(i);
     }
-    return result;
+    return (returnType) result;
 }
 
 template <typename returnType, typename T1 = returnType>
@@ -185,48 +185,48 @@ returnType tan(T1 x){
 template <typename returnType, typename T1 = returnType>
 returnType arcsin(T1 x){
     //treba zmanjsat def. obmocje
-    returnType result = 0;
+    float result = 0;
     for(int i = 0;i<20;i++){
         int t3 = (2*i) + 1;
         result += (factorialL(2*i))/(pow((int) 4, (int) i) * (factorialL(i)*factorialL(i)) * (t3))*pow((double) x, (int) t3);
     }
-    return result;
+    return (returnType) result;
 }
 
 template <typename returnType, typename T1 = returnType>
 returnType arccos(T1 x){
-    return (returnType) ((PI/2) - arcsin<T1>(x));
+    return (returnType) ((PI/2) - arcsin<float>(x));
 }
 
 template <typename returnType, typename T1 = returnType>
 returnType arctan(T1 x){
     //treba zmanjsat def. obmocje    
-    returnType result = 0;
+    float result = 0;
     for(int i = 0;i<20;i++){
         int t2 = (2*i) + 1;
         result += ((pow(-1, i))/t2)*pow(x, t2);
     }
-    return result;
+    return (returnType) result;
 }
 
 template <typename returnType, typename T1 = returnType>
 returnType sinh(T1 x){
-    returnType result = 0;
+    float result = 0;
     for(int i = 0;i<20;i++){
         int t = (2*i) + 1;
         result += ((pow(x, t))/factorialL(t));
     }
-    return result;
+    return (returnType) result;
 }
 
 template <typename returnType, typename T1 = returnType>
 returnType cosh(T1 x){
-    returnType result = 0;
+    float result = 0;
     for(int i = 0;i<20;i++){
         int t = 2*i;
         result += ((pow(x, t))/factorialL(t));
     }
-    return result;    
+    return (returnType) result;    
 }
 
 template <typename T1>
