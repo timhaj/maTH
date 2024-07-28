@@ -47,7 +47,7 @@ template <typename returnType = double, typename T>
 returnType sin(T x) {
     int terms = 10;
     // argument deduction
-    x = fmod(x, PI); // Reduce x to the range of [-2pi, 2pi]
+    x = fmod(x, 2 * PI); // Reduce x to the range of [-2pi, 2pi]
     if (x < -PI) {
         x += 2 * PI; // Adjust x to the range of [-pi, pi]
     }
@@ -176,31 +176,39 @@ returnType exp(T1 x){
     return (returnType) result;
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType tan(T1 x){
-    //treba zmanjsat def. obmocje
+    x = fmod(x, PI); //reduce x to the range of [-pi, pi]
+    //adjust x to range of [-pi/2, pi/2]
+    if(x < -PI / 2){
+        x += PI;
+    }
+    else if(x > PI/2){
+        x -= PI;
+    }
     return (returnType) (sin<double>(x)/cos<double>(x));
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType arcsin(T1 x){
-    //treba zmanjsat def. obmocje
+    if(x < -1 || x > 1){
+        throw std::runtime_error("Error: arcsin is undefined for values outside the domain range [-1, 1].");
+    }
     float result = 0;
-    for(int i = 0;i<20;i++){
+    for(int i = 0;i<11;i++){
         int t3 = (2*i) + 1;
         result += (factorialL(2*i))/(pow((int) 4, (int) i) * (factorialL(i)*factorialL(i)) * (t3))*pow((double) x, (int) t3);
     }
     return (returnType) result;
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType arccos(T1 x){
     return (returnType) ((PI/2) - arcsin<float>(x));
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType arctan(T1 x){
-    //treba zmanjsat def. obmocje    
     float result = 0;
     for(int i = 0;i<20;i++){
         int t2 = (2*i) + 1;
@@ -209,7 +217,7 @@ returnType arctan(T1 x){
     return (returnType) result;
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType sinh(T1 x){
     float result = 0;
     for(int i = 0;i<20;i++){
@@ -219,7 +227,7 @@ returnType sinh(T1 x){
     return (returnType) result;
 }
 
-template <typename returnType, typename T1 = returnType>
+template <typename returnType = double, typename T1 = returnType>
 returnType cosh(T1 x){
     float result = 0;
     for(int i = 0;i<20;i++){
