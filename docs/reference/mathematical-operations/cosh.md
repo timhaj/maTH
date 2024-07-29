@@ -1,23 +1,17 @@
 # cosh
 
-## Divide any two numbers
+## Compute hyperbolic cosine of a given argument
 
 ```cpp
-divide<return_type>(a, b);
+cosh(x);
 ```
 
-will return the quotient of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
+will return the hyperbolic cosine of an argument. There is no custom return type, the function always returns an double.&#x20;
 
 ```cpp
-divide<int>(12, 3.53); //4
-divide<float>(3.002, 3.522); //0.852357
-divide<bool>(0, 2); //0
-------------------------
-divide<char>('z', 2); //'='
+cosh(0); // 1
+cosh(1); //1.5431
+cosh(-1); //1.5431
+cosh(2); //3.7622
+cosh(-2); //3.7622
 ```
-
-{% hint style="warning" %}
-Typically division works only for numeric data types, but in this case, you have an additional option for characters. Before using it in that way, please test it before actually implementing something.&#x20;
-
-Also be careful of the denominator being zero, because the compiler won't tell you that it is! It's not a bug, it's a feature.  :wink:
-{% endhint %}

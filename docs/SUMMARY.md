@@ -7,6 +7,7 @@
 
 * [😱 Mathematical operations](reference/mathematical-operations/README.md)
   * [add](reference/mathematical-operations/add.md)
+  * [pascal](reference/mathematical-operations/pascal.md)
   * [factorial](reference/mathematical-operations/factorial.md)
   * [factorialL](reference/mathematical-operations/factoriall.md)
   * [GCD](reference/mathematical-operations/gcd.md)
@@ -37,8 +38,6 @@
   * [sinh](reference/mathematical-operations/sinh.md)
   * [cosh](reference/mathematical-operations/cosh.md)
   * [round](reference/mathematical-operations/round.md)
-  * [Users](reference/mathematical-operations/users.md)
-  * [Copy of Users](reference/mathematical-operations/copy-of-users.md)
 * [🥶 Statistics](reference/statistics/README.md)
   * [Binomial](reference/statistics/binomial.md)
   * [Poisson](reference/statistics/poisson.md)

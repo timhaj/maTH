@@ -1,23 +1,22 @@
 # cos
 
-## Divide any two numbers
+## Compute cosine of a given argument
 
 ```cpp
-divide<return_type>(a, b);
+cos(x);
 ```
 
-will return the quotient of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
+will return the cosine of an argument, expressed in radians. There is no custom return type, the function always returns an double.&#x20;
 
 ```cpp
-divide<int>(12, 3.53); //4
-divide<float>(3.002, 3.522); //0.852357
-divide<bool>(0, 2); //0
-------------------------
-divide<char>('z', 2); //'='
+cos(0); // 1
+cos(PI / 6) == cos(degToRad<float>(30); // sqrt(3)/2 = 0.866
+cos(PI / 4) == cos(degToRad<float>(45); // sqrt(2)/2 = 0.707
+cos(PI / 3) == cos(degToRad<float>(60); // 0.5
+cos(PI / 2) == cos(degToRad<float>(90); // 0
+cos(7 * PI / 6) == cos(degToRad<float>(210); // -0.866
 ```
 
 {% hint style="warning" %}
-Typically division works only for numeric data types, but in this case, you have an additional option for characters. Before using it in that way, please test it before actually implementing something.&#x20;
-
-Also be careful of the denominator being zero, because the compiler won't tell you that it is! It's not a bug, it's a feature.  :wink:
+Make sure you are passing radians as a argument. You can easily use [degToRad](degtorad.md) function to convert it within the argument itself.&#x20;
 {% endhint %}
