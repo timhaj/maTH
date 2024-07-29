@@ -204,6 +204,9 @@ returnType arcsin(T1 x){
 
 template <typename returnType = double, typename T1 = returnType>
 returnType arccos(T1 x){
+    if(x < -1 || x > 1){
+        throw std::runtime_error("Error: arccos is undefined for values outside the domain range [-1, 1].");
+    }
     return (returnType) ((PI/2) - arcsin<float>(x));
 }
 
