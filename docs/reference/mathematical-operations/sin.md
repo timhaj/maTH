@@ -1,23 +1,22 @@
 # sin
 
-## Divide any two numbers
+## Compute sine of an given argument
 
 ```cpp
-divide<return_type>(a, b);
+sin(x);
 ```
 
-will return the quotient of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
+will return the sine of an argument, expressed in radians. There is no custom return type, the function always returns an double.&#x20;
 
 ```cpp
-divide<int>(12, 3.53); //4
-divide<float>(3.002, 3.522); //0.852357
-divide<bool>(0, 2); //0
-------------------------
-divide<char>('z', 2); //'='
+sin(0); // 0
+sin(PI / 6) == sin(degToRad<float>(30); // 0.5
+sin(PI / 4) == sin(degToRad<float>(45); // sqrt(2)/2 = 0.707
+sin(PI / 3) == sin(degToRad<float>(60); // sqrt(3)/2 = 0.866
+sin(PI / 2) == sin(degToRad<float>(90); // 1
+sin(7 * PI / 6) == sin(degToRad<float>(210); // -0.5
 ```
 
 {% hint style="warning" %}
-Typically division works only for numeric data types, but in this case, you have an additional option for characters. Before using it in that way, please test it before actually implementing something.&#x20;
-
-Also be careful of the denominator being zero, because the compiler won't tell you that it is! It's not a bug, it's a feature.  :wink:
+Make sure you are passing radians as a argument. You can easily use [degToRad](degtorad.md) function to convert it within the argument itself.&#x20;
 {% endhint %}

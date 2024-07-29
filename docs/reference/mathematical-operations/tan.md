@@ -1,23 +1,22 @@
 # tan
 
-## Divide any two numbers
+## Compute tangent of a given argument
 
 ```cpp
-divide<return_type>(a, b);
+tan(x);
 ```
 
-will return the quotient of the two given numbers. The return\_type specifies in which data type the difference will be returned in, like shown in below example:&#x20;
+will return the tangent of an argument, expressed in radians. There is no custom return type, the function always returns an double.&#x20;
 
 ```cpp
-divide<int>(12, 3.53); //4
-divide<float>(3.002, 3.522); //0.852357
-divide<bool>(0, 2); //0
-------------------------
-divide<char>('z', 2); //'='
+tan(0); // 0
+tan(PI / 6) == tan(degToRad<float>(30); // 1/sqrt(3) = 0.577
+tan(PI / 4) == tan(degToRad<float>(45); // 1
+tan(PI / 3) == tan(degToRad<float>(60); // sqrt(3) = 1.732
+tan(PI / 2) == tan(degToRad<float>(90); // 0, not infinity!
+tan(-PI / 6) == tan(degToRad<float>(-30); // -0.577
 ```
 
 {% hint style="warning" %}
-Typically division works only for numeric data types, but in this case, you have an additional option for characters. Before using it in that way, please test it before actually implementing something.&#x20;
-
-Also be careful of the denominator being zero, because the compiler won't tell you that it is! It's not a bug, it's a feature.  :wink:
+Make sure you are passing radians as a argument. You can easily use [degToRad](degtorad.md) function to convert it within the argument itself.&#x20;
 {% endhint %}
