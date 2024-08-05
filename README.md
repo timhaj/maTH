@@ -20,7 +20,7 @@ int main() {
     return 0;
 }
 ```
-to run the code, run the following command with the library (already included in the repo):
+to run the code, run the following command with the library:
 ```console
 g++ <file_name> -L. -lmaTH -o main_executable
 ```
@@ -38,10 +38,26 @@ and create the library with:
 ar rcs libmaTH.a maTH.o
 ```
 
+## CMake instructions
+```cmd
+mkdir build
+cd build
+cmake ..
+make
+main
+```
+Incase the Makefile doesn't appear, use:
+```cmd
+mkdir build
+cd build
+cmake -G "Unix Makefiles" ..
+make
+main
+```
+
 ## Contributions
 Contributions for the library are very much welcome! If you have ideas for new features, optimizations, or bug fixes, feel free to open an issue or submit a pull request.
 ___
 TODO:
-- add cmake instructions
-- gitbook docs
+- gitbook docs, more detail for constants
 - more math!, maybe DS&algos in future
