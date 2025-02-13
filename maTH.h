@@ -653,7 +653,7 @@ void bubbleSort(std::vector<T>& arr, bool isAscending){
 template<typename T>
 void insertionSort(std::vector<T>& arr, bool isAscending){
     for(int i = 1;i<arr.size();i++){
-        auto k = arr[i];
+        T k = arr[i];
         int j = i;
         while ((j > 0 && arr[j-1] > k) && isAscending || (j > 0 && arr[j-1] < k) && !isAscending){
             arr[j] = arr[j-1];
