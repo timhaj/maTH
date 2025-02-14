@@ -663,4 +663,19 @@ void insertionSort(std::vector<T>& arr, bool isAscending){
     }
 }
 
+template<typename T>
+void selectionSort(std::vector<T>& arr, bool isAscending){
+    for(int i = 0;i<arr.size()-1;i++){
+        int m = i;
+        for(int j = i + 1;j<arr.size();j++){
+            if((arr[j] <= arr[m] && isAscending) || (arr[j] >= arr[m] && !isAscending)){
+                m = j;
+            }
+        }
+        T tmp = arr[i];
+        arr[i] = arr[m];
+        arr[m] = tmp;
+    }
+}
+
 #endif
