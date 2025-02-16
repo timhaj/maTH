@@ -731,4 +731,40 @@ void mergeSort(std::vector<T>& arr, bool isAscending) {
     mergeSort(arr, 0, arr.size() - 1, isAscending);
 }
 
+template<typename T>
+int partition(std::vector<T>& arr, int low, int high, bool isAscending) {
+    T pivot = arr[high];
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if ((arr[j] <= pivot && isAscending) || (arr[j] >= pivot && !isAscending)) {
+            i++;
+            T tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+        }
+    }
+
+    T tmp = arr[i + 1];
+    arr[i + 1] = arr[high];
+    arr[high] = tmp;
+
+    return i + 1;
+}
+
+template<typename T>
+void quickSort(std::vector<T>& arr, int low, int high, bool isAscending) {
+    if (low < high) {
+        int pi = partition(arr, low, high, isAscending);
+
+        quickSort(arr, low, pi - 1, isAscending);
+        quickSort(arr, pi + 1, high, isAscending);
+    }
+}
+
+template<typename T>
+void quickSort(std::vector<T>& arr, bool isAscending) {
+    quickSort(arr, 0, arr.size() - 1, isAscending);
+}
+
 #endif
