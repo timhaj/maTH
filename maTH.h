@@ -767,4 +767,48 @@ void quickSort(std::vector<T>& arr, bool isAscending) {
     quickSort(arr, 0, arr.size() - 1, isAscending);
 }
 
+template<typename T>
+void siftDown(std::vector<T>& arr, int start, int end, bool isAscending) {
+    int root = start;
+
+    while (2 * root + 1 <= end) {
+        int child = 2 * root + 1;
+        int swapIdx = root;
+
+        if ((arr[swapIdx] < arr[child] && isAscending) || (arr[swapIdx] > arr[child] && !isAscending)) {
+            swapIdx = child;
+        }
+
+        if (child + 1 <= end && ((arr[swapIdx] < arr[child + 1] && isAscending) || (arr[swapIdx] > arr[child + 1] && !isAscending))) {
+            swapIdx = child + 1;
+        }
+
+        if (swapIdx == root) {
+            return;
+        } 
+        else {
+            T tmp = arr[root];
+            arr[root] = arr[swapIdx];
+            arr[swapIdx] = tmp;
+            root = swapIdx;
+        }
+    }
+}
+
+template<typename T>
+void heapSort(std::vector<T>& arr, bool isAscending) {
+    int n = arr.size();
+
+    for (int start = n / 2 - 1; start >= 0; start--) {
+        siftDown(arr, start, n - 1, isAscending);
+    }
+
+    for (int end = n - 1; end > 0; end--) {
+        T tmp = arr[0];
+        arr[0] = arr[end];
+        arr[end] = tmp;
+        siftDown(arr, 0, end - 1, isAscending);
+    }
+}
+
 #endif
