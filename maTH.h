@@ -811,4 +811,49 @@ void heapSort(std::vector<T>& arr, bool isAscending) {
     }
 }
 
+template<typename T>
+void countSort(std::vector<T>& arr, bool isAscending) {
+    if (arr.empty()) return;
+
+    T minVal = arr[0];
+    T maxVal = arr[0];
+
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+
+    int range = maxVal - minVal + 1;
+    std::vector<int> count(range, 0);
+    std::vector<T> output(arr.size());
+
+    for (int i = 0; i < arr.size(); i++) {
+        count[arr[i] - minVal]++;
+    }
+
+    for (int i = 1; i < count.size(); i++) {
+        count[i] += count[i - 1];
+    }
+
+    for (int i = arr.size() - 1; i >= 0; i--) {
+        output[count[arr[i] - minVal] - 1] = arr[i];
+        count[arr[i] - minVal]--;
+    }
+
+    if (isAscending) {
+        for (int i = 0; i < arr.size(); i++) {
+            arr[i] = output[i];
+        }
+    } 
+    else {
+        for (int i = 0; i < arr.size(); i++) {
+            arr[i] = output[arr.size() - 1 - i];
+        }
+    }
+}
+
 #endif
