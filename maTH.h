@@ -856,4 +856,38 @@ void countSort(std::vector<T>& arr, bool isAscending) {
     }
 }
 
+template<typename T>
+void bucketSort(std::vector<T>& arr, bool isAscending) {
+    if (arr.empty()) return;
+
+    T minVal = arr[0];
+    T maxVal = arr[0];
+
+    for (int i = 1; i < arr.size(); i++) {
+        if (arr[i] < minVal) {
+            minVal = arr[i];
+        }
+        if (arr[i] > maxVal) {
+            maxVal = arr[i];
+        }
+    }
+
+    int bucketCount = arr.size();
+    std::vector<std::vector<T>> buckets(bucketCount);
+
+    for (int i = 0; i < arr.size(); i++) {
+        int bucketIndex = (bucketCount - 1) * (arr[i] - minVal) / (maxVal - minVal);
+        buckets[bucketIndex].push_back(arr[i]);
+    }
+
+    int index = 0;
+    for (int i = 0; i < buckets.size(); i++) {
+        for (int j = 0; j < buckets[i].size(); j++) {
+            arr[index++] = buckets[i][j];
+        }
+    }
+
+    insertionSort(arr, isAscending);
+}
+
 #endif
