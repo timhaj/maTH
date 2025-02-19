@@ -932,4 +932,27 @@ void radixSort(std::vector<int>& arr, bool isAscending) {
     }
 }
 
+template<typename T>
+struct Stack {
+    std::vector<T> items;
+
+    void push(const T& value) {
+        items.push_back(value);
+    }
+
+    void pop() {
+        if (!items.empty()) {
+            items.pop_back();
+        }
+    }
+
+    T top() {
+        return items.back();
+    }
+
+    bool empty() {
+        return items.empty();
+    }
+};
+
 #endif
