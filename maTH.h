@@ -1,6 +1,7 @@
 #include <vector>
 #include <cmath>
 #include <stdexcept>
+#include <iostream>
 #ifndef MATH_H
 #define MATH_H
 
@@ -1012,6 +1013,89 @@ struct Queue {
         }
         throw std::runtime_error("Error: Cannot retrieve element because queue is empty.");
     }
+};
+
+template<typename T>
+struct LinkedList{
+    struct Node{
+        T data;
+        struct Node* next;
+
+        Node(T value){
+            data = value;
+            next = nullptr;
+        }
+
+    }*start = nullptr;
+
+    void push(const T& value){
+        Node* tmp = new Node(value);
+        tmp->next = start;
+        start = tmp;
+    }
+
+    T pop(){
+        if(start == nullptr){
+            throw std::runtime_error("Error: Cannot retrieve element because list is empty.");
+        }
+        else{
+            T value = start->data;
+            Node* tmp = start;
+            start = start->next;
+            delete tmp;
+            return value;
+        }
+    }
+
+    bool find(T v, Node* p = nullptr){
+        if(p == nullptr){
+            p = start;
+        }
+        if(p == nullptr){
+            return false;
+        }
+        else if(v == p->data){
+            return true;
+        }
+        return find(v, p->next);
+    }
+
+    void remove(T v){
+        if(!find(v)){
+            throw std::runtime_error("Error: Cannot remove element because it doesn't exist in list.");
+        }
+
+        while (start != nullptr && start->data == v){
+            Node* tmp = start;
+            start = start->next;
+            delete tmp;
+        }
+
+        Node* curr = start;
+        Node* prev = nullptr;
+
+        while (curr != nullptr) {
+            if (curr->data == v) {
+                prev->next = curr->next;
+                delete curr;
+                curr = prev->next;
+            } 
+            else {
+                prev = curr;
+                curr = curr->next;
+            }
+        }
+    }
+
+    void traverse(){
+        Node* tmp = start;
+        while(tmp != nullptr){
+            std::cout << tmp-> data << " ";
+            tmp = tmp->next;
+        }
+        std::cout << std::endl;
+    }
+
 };
 
 #endif
