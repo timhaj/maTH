@@ -935,23 +935,82 @@ void radixSort(std::vector<int>& arr, bool isAscending) {
 template<typename T>
 struct Stack {
     std::vector<T> items;
+    int topIndex = -1;
 
     void push(const T& value) {
         items.push_back(value);
+        topIndex++;
     }
 
-    void pop() {
-        if (!items.empty()) {
-            items.pop_back();
+    T pop() {
+        if (topIndex >= 0) {
+            return items[topIndex--];
         }
+        throw std::runtime_error("Error: Cannot retrieve element because stack is empty.");
     }
 
     T top() {
-        return items.back();
+        if (topIndex >= 0) {
+            return items[topIndex];
+        }
+        throw std::runtime_error("Error: Cannot retrieve element because stack is empty.");
     }
 
     bool empty() {
-        return items.empty();
+        return topIndex < 0;
+    }
+};
+
+template<typename T>
+struct Queue {
+    std::vector<T> items;
+    int front = 0, back = -1;
+
+    void enqueue(const T& value) {
+        items.push_back(value);
+        back++;
+    }
+
+    T dequeue() {
+        if(front <= back) {
+            return items[front++];
+        }
+        throw std::runtime_error("Error: Cannot retrieve element because queue is empty.");
+    }
+
+    void enqueueFront(const T& value) {
+        if(front > 0) {
+            items[--front] = value;
+        } 
+        else {
+            items.insert(items.begin(), value);
+            back++;
+        }
+    }
+
+    T dequeueBack() {
+        if(front <= back) {
+            return items[back--];
+        }
+        throw std::runtime_error("Error: Cannot retrieve element because queue is empty.");
+    }
+
+    bool empty() {
+        return front > back;
+    }
+
+    T getFront() {
+        if(front <= back) {
+            return items[front];
+        }
+        throw std::runtime_error("Error: Cannot retrieve element because queue is empty.");
+    }
+
+    T getBack() {
+        if(front <= back) {
+            return items[back];
+        }
+        throw std::runtime_error("Error: Cannot retrieve element because queue is empty.");
     }
 };
 
