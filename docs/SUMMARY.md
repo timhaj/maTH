@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🫡 Welcome!](README.md)
+* [👋 Welcome!](README.md)
 * [🗿 Installation](installation.md)
 
 ## Reference
@@ -46,4 +46,8 @@
   * [Hypergeometric](reference/statistics/hypergeometric.md)
   * [Exponential](reference/statistics/exponential.md)
   * [Uniform](reference/statistics/uniform.md)
+* [🥵 Data structures](reference/data-structures/README.md)
+  * [Stack](reference/data-structures/round.md)
+  * [Queue](reference/data-structures/round-1.md)
+  * [LinkedList](reference/data-structures/round-2.md)
 * [😳 Constants](reference/constants.md)
