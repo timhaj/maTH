@@ -24,6 +24,10 @@ Dive a little deeper and start exploring our library reference to get an idea of
 [statistics](reference/statistics/)
 {% endcontent-ref %}
 
+{% content-ref url="reference/data-structures/" %}
+[data-structures](reference/data-structures/)
+{% endcontent-ref %}
+
 {% content-ref url="reference/constants.md" %}
 [constants.md](reference/constants.md)
 {% endcontent-ref %}
