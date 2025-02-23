@@ -28,6 +28,10 @@ Dive a little deeper and start exploring our library reference to get an idea of
 [data-structures](reference/data-structures/)
 {% endcontent-ref %}
 
+{% content-ref url="reference/algorithms/" %}
+[algorithms](reference/algorithms/)
+{% endcontent-ref %}
+
 {% content-ref url="reference/constants.md" %}
 [constants.md](reference/constants.md)
 {% endcontent-ref %}
